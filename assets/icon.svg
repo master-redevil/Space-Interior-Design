@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32" fill="none">
+  <!-- Minimalist Room / Perspective Frame -->
+  <path d="M 8 14 L 24 6 L 40 14 L 40 34 L 24 42 L 8 34 Z" 
+        stroke="var(--primary-color, #0066ff)" 
+        stroke-width="2.5" 
+        stroke-linejoin="round"/>
+  
+  <!-- Interior Corner Perspective Lines -->
+  <path d="M 24 6 L 24 42 M 8 14 L 24 24 L 40 14" 
+        stroke="var(--primary-color, #0066ff)" 
+        stroke-width="2" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        opacity="0.45"/>
+  
+  <!-- Accent Furniture / Accent Geometry Core -->
+  <circle cx="24" cy="24" r="3.5" fill="#111111" />
+</svg>
