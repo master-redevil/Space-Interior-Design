@@ -1,10 +1,12 @@
-*{
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     /* font-family: "Roboto Condensed", sans-serif; */
 }
 
 :root {
-    --primary-color : rgb(0, 102, 255);
+    --primary-color: rgb(0, 102, 255);
 }
 
 body {
@@ -12,41 +14,38 @@ body {
     background-size: cover;
 }
 
-#bg-img {
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    z-index: -1;
-}
-
 #nav-bar {
     z-index: 100;
-    width: 95%;
-    display: flex;
-    justify-self: center;
-    height: 70px;
-    background-color: aliceblue;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #f3f6f9;
     color: black;
-    border-radius: 10px;
-    margin-top: 20px;
-    box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.283);
-    transition: 1s;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    height: 70px;
+    display: flex;
+    flex-direction: column; 
+    transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-#nav-bar:hover {
-    transform: scale(100.5%);
+#nav-bar.expanded {
+    height: 380px;
 }
 
-#nav-bar ul {
-    font-size: 25px;
+#nav-bar > ul {
+    font-size: 20px;
     align-items: center;
     list-style: none;
     display: flex;
     gap: 20px;
     width: 100%;
+    min-height: 70px;
+    padding: 0 25px;
 }
 
-a{
+a {
     color: black;
     text-decoration: none;
 }
@@ -54,7 +53,6 @@ a{
 #home-tab {
     font-family: "Cookie", cursive;
     font-weight: 400;
-    font-style: normal;
     font-size: 45px;
 }
 
@@ -63,16 +61,18 @@ a{
 }
 
 #signup-btn {
-    margin-right: 20px;
-    width: 140px;
-    height: 35px;
-    font-size: 20px;
-    border-radius: 5px;
+    width: 130px;
+    height: 38px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 6px;
     border: 2px solid var(--primary-color);
     background-color: var(--primary-color);
     color: white;
-    transition: 1s;
+    cursor: pointer;
+    transition: all 0.25s ease;
 }
+
 #signup-btn:hover {
     background-color: rgb(28, 118, 254);
     border-color: rgb(28, 118, 254);
@@ -85,10 +85,81 @@ a{
     color: #111;
     padding: 8px 14px;
     border-radius: 6px;
-    transition: background-color 0.5s ease, color 0.5s ease;
+    transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .nav-link:hover {
     background-color: rgba(0, 102, 255, 0.08);
     color: #0066ff;
+}
+
+#design-div {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px 30px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease 0.1s;
+}
+
+#nav-bar.expanded #design-div {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#nav-bar.expanded #explore-div {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#ul-div {
+    display: flex;
+    gap: 40px;
+}
+
+#ul-div ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#ul-div li {
+    font-size: 14px;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+#ul-div li:hover:not(.ul-heading) {
+    color: rgb(28, 118, 254);
+}
+
+.ul-heading {
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.8px;
+    color: #111;
+    margin-bottom: 8px;
+    cursor: default;
+}
+
+#img-div {
+    width: 400px;
+}
+
+#design-div-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+#explore-div {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px 30px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease 0.1s;
 }
