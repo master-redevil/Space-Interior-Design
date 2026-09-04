@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/icon.svg">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/4.0.0/jquery.min.js" integrity="sha512-8LENNbXmzI/Gbj+OwXmqR6V4QaUAw0/porPzy1+dQoJqC0JPHedWoe0DDOTL2uHA5XXJyIsPtiMHH86pVlay6A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="script.js"></script>
 </head>
 <body>
@@ -17,13 +18,13 @@
     <ul id="nav">
         <li id="home-tab"><a href="index.html">Space</a></li>
         <li id="design-tab"><a href="" class="nav-link">Design</a></li>
-        <li><a href="" class="nav-link">Explore</a></li>
+        <li id="explore-tab"><a href="" class="nav-link">Explore</a></li>
         <li><a href="" class="nav-link">Login</a></li>
         <li><a href=""><button  id="signup-btn">Get Started</button></a></li>
     </ul>
     
-<div id="design-div">
-    <div id="ul-div">
+<div id="design-div" class="dropdown-content">
+    <div class="ul-div">
         <ul>
             <li class="ul-heading">WORK WITH A DESIGNER</li>
             <li>Interior Design Services</li>
@@ -43,8 +44,35 @@
             <li>Gift Cards</li>
         </ul>
     </div>
-    <div id="img-div">
-        <img src="assets/img1.jpg" alt="" id="design-div-img">
+    <div class="img-div">
+        <img src="assets/img1.jpg" alt="" class="div-img">
+    </div>
+</div>
+    
+<div id="explore-div" class="dropdown-content">
+    <div class="ul-div">
+        <ul>
+            <li>IDEAS BY ROOM</li>
+            <li>Living Room Ideas</li>
+            <li>Bedroom Ideas</li>
+            <li>Dining Room Ideas</li>
+            <li>Restroom Ideas</li>
+            <li>Lounge Ideas</li>
+            <li>Patio Ideas</li>
+        </ul>
+        <ul>
+            <li>IDEAS BY STYLE</li>
+            <li>Coastal</li>
+            <li>Modern Boho</li>
+            <li>Mid Century</li>
+            <li>Modern Farmhouse</li>
+            <li>Scandinavian</li>
+            <li>Gam</li>
+            <li>Traditional</li>
+        </ul>
+    </div>
+    <div class="img-div">
+        <img src="assets/img2.png" alt="" class="div-img">
     </div>
 </div>
 </nav>

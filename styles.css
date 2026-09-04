@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* font-family: "Roboto Condensed", sans-serif; */
 }
 
 :root {
@@ -10,11 +9,14 @@
 }
 
 body {
-    background-image: url(assets/bg.jpg);
+    background-image: url("assets/bg.jpg");
     background-size: cover;
+    background-position: center;
+    min-height: 100vh;
 }
 
 #nav-bar {
+    position: relative;
     z-index: 100;
     width: 90%;
     max-width: 1200px;
@@ -26,7 +28,7 @@ body {
     overflow: hidden;
     height: 70px;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -93,45 +95,51 @@ a {
     color: #0066ff;
 }
 
-#design-div {
+.dropdown-content {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
     display: flex;
     justify-content: space-between;
-    padding: 20px 40px 30px;
+    align-items: center;
+    padding: 20px 45px 30px;
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.25s ease 0.1s;
+    margin-left: -20%;  
+    transition:cubic-bezier(0.6, -0.28, 0.735, 0.045)
 }
 
-#nav-bar.expanded #design-div {
+.dropdown-content.active {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
 }
 
-#nav-bar.expanded #explore-div {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-#ul-div {
+.ul-div {
     display: flex;
-    gap: 40px;
+    gap: 48px;
+    margin-left: 220px;
 }
 
-#ul-div ul {
+.ul-div ul {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
+    top: -20px;
+    position: relative;
 }
 
-#ul-div li {
+.ul-div li {
     font-size: 14px;
     color: #555;
     cursor: pointer;
     transition: color 0.2s ease;
 }
 
-#ul-div li:hover:not(.ul-heading) {
+.ul-div li:hover:not(.ul-heading) {
     color: rgb(28, 118, 254);
 }
 
@@ -144,22 +152,25 @@ a {
     cursor: default;
 }
 
-#img-div {
-    width: 400px;
+/* Preview Image Area */
+.img-div {
+    /* margin-top: 50px; */
+    width: 360px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    height: 250px;
+    flex-shrink: 0;
 }
 
-#design-div-img {
+.img-div:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px) scale(1.02);
+    transition: all 0.25s ease;
+}
+
+.div-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 8px;
-}
-
-# {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 40px 30px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.25s ease 0.1s;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
