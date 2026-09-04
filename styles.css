@@ -1,4 +1,6 @@
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,27 +8,41 @@
 
 :root {
     --primary-color: rgb(0, 102, 255);
+    --primary-hover: rgb(28, 118, 254);
+    --text-dark: #111;
+    --text-muted: #555;
+    --nav-bg: #f3f6f9;
 }
 
 body {
-    background-image: url("assets/bg.jpg");
-    background-size: cover;
-    background-position: center;
     min-height: 100vh;
+    background: url("assets/bg.jpg") center / cover no-repeat;
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   Navigation Bar
+   ========================================================================== */
+
 #nav-bar {
-    position: relative;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 100;
     width: 90%;
     max-width: 1200px;
-    margin: 20px auto;
-    background-color: #f3f6f9;
-    color: black;
+    height: 70px;
+    background-color: var(--nav-bg);
+    color: var(--text-dark);
+    font-weight: 500;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     overflow: hidden;
-    height: 70px;
     display: flex;
     flex-direction: column;
     transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -37,29 +53,36 @@ body {
 }
 
 #nav-bar > ul {
-    font-size: 20px;
-    align-items: center;
-    list-style: none;
-    display: flex;
-    gap: 20px;
     width: 100%;
     min-height: 70px;
-    padding: 0 25px;
-}
-
-a {
-    color: black;
-    text-decoration: none;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    font-size: 18px;
 }
 
 #home-tab {
     font-family: "Cookie", cursive;
     font-weight: 400;
-    font-size: 45px;
+    font-size: 42px;
 }
 
 #design-tab {
     margin-left: auto;
+}
+
+.nav-link {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.nav-link:hover {
+    background-color: rgba(0, 102, 255, 0.08);
+    color: var(--primary-color);
 }
 
 #signup-btn {
@@ -70,45 +93,36 @@ a {
     border-radius: 6px;
     border: 2px solid var(--primary-color);
     background-color: var(--primary-color);
-    color: white;
+    color: #fff;
     cursor: pointer;
-    transition: all 0.25s ease;
+    transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 #signup-btn:hover {
-    background-color: rgb(28, 118, 254);
-    border-color: rgb(28, 118, 254);
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
     transform: translateY(-1px) scale(1.03);
     box-shadow: 0 6px 16px rgba(28, 118, 254, 0.35);
 }
 
-.nav-link {
-    text-decoration: none;
-    color: #111;
-    padding: 8px 14px;
-    border-radius: 6px;
-    transition: background-color 0.25s ease, color 0.25s ease;
-}
-
-.nav-link:hover {
-    background-color: rgba(0, 102, 255, 0.08);
-    color: #0066ff;
-}
+/* ==========================================================================
+   Dropdown Panels
+   ========================================================================== */
 
 .dropdown-content {
     position: absolute;
     top: 70px;
     left: 0;
     right: 0;
+    height: calc(380px - 70px);
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     padding: 20px 45px 30px;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    margin-left: -20%;  
-    transition:cubic-bezier(0.6, -0.28, 0.735, 0.045)
+    transition: opacity 0.25s ease, visibility 0.25s;
 }
 
 .dropdown-content.active {
@@ -119,8 +133,8 @@ a {
 
 .ul-div {
     display: flex;
+    
     gap: 48px;
-    margin-left: 220px;
 }
 
 .ul-div ul {
@@ -128,49 +142,50 @@ a {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    top: -20px;
-    position: relative;
-}
-
-.ul-div li {
-    font-size: 14px;
-    color: #555;
-    cursor: pointer;
-    transition: color 0.2s ease;
-}
-
-.ul-div li:hover:not(.ul-heading) {
-    color: rgb(28, 118, 254);
 }
 
 .ul-heading {
     font-weight: 700;
     font-size: 12px;
     letter-spacing: 0.8px;
-    color: #111;
-    margin-bottom: 8px;
+    color: var(--text-dark);
+    margin-bottom: 6px;
     cursor: default;
 }
 
-/* Preview Image Area */
+.ul-div li {
+    font-size: 14px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.ul-div li:hover:not(.ul-heading) {
+    color: var(--primary-hover);
+}
+
+/* ==========================================================================
+   Dropdown Image Preview
+   ========================================================================== */
+
 .img-div {
-    /* margin-top: 50px; */
     width: 360px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    height: 250px;
+    height: 240px;
     flex-shrink: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .img-div:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     transform: translateY(-2px) scale(1.02);
-    transition: all 0.25s ease;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
 }
 
 .div-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: block;
 }
