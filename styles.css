@@ -15,8 +15,8 @@
 }
 
 body {
-    min-height: 100vh;
-    background: url("assets/bg.jpg") center / cover no-repeat;
+    height: 100vh;   
+    background: url("assets/bg.avif") center / cover no-repeat;
 }
 
 a {
@@ -41,7 +41,7 @@ a {
     color: var(--text-dark);
     font-weight: 500;
     border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.34);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -188,4 +188,16 @@ a {
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: "plus-jakarta-sans", sans-serif;
+    font-size: 30px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
